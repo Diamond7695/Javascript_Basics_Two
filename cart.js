@@ -56,8 +56,12 @@ const cart = [
     decimals, for example: .06 for a 6% tax.
 */
 
+const calcFinalPrice = (cartTotal, coupounValue, tax) =>{
+    const result = (cartTotal *(1 + tax)) - coupounValue
+    return result
+}
 
-
+console.log(calcFinalPrice(59.99,08))
 
 
 
@@ -83,7 +87,10 @@ const cart = [
 */
 
 /*
-    TEXT ANSWER HERE
+    firstName (string)
+    lastName (string)
+    phone(string)
+    regular(boolean)
 
 */
 
@@ -92,4 +99,9 @@ const cart = [
     guidelines.
 */
 
-//CODE HERE
+const customer ={
+    firstName: "Diamond",
+    lastName:"Yoliver",
+    phone: "123,456,7899",
+    regular: true
+}

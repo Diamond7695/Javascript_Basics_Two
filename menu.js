@@ -30,16 +30,16 @@
     'kids'
 */
 
-const Pizza = {
-    name: 'This pizza',
-    price: 5.99,
-    category: 'This is category',
-    popularity: 1,
-    rating: 4,
-    tags: [`1`,`2`]
+// const Pizza = {
+//     name: 'This pizza',
+//     price: 5.99,
+//     category: 'This is category',
+//     popularity: 1,
+//     rating: 4,
+//     tags: [`1`,`2`]
 
     
-}
+// }
 
 
 
@@ -51,7 +51,7 @@ const Pizza = {
     Use dot notation to access the value.
 */
 
-console.log(Pizza['popularity'])
+console.log(Pizza.popularity)
 
 
 /*
@@ -70,9 +70,9 @@ console.log(Pizza['tags'])
     
     Print the value of your new price variable.
 */
-Pizza.price = 3.44
+console.log(Pizza.tags[1])
 
-console.log(Pizza['price'])
+
 
 
 /*
@@ -82,9 +82,10 @@ console.log(Pizza['price'])
     Print the value of your category variable. 
 */
 
-Pizza.category = "This is new category variable "
+const {category} = Pizza
 
-console.log(Pizza['category'])
+
+console.log(category)
 
 
 //////////////////PROBLEM 3////////////////////
@@ -99,8 +100,56 @@ console.log(Pizza['category'])
     data in some functions that you'll write.
 */
 
-//CODE HERE
+const foodArr = [
+    {
+    name: 'cookies',
+    price: 7.99,
+    category: 'entree',
+    popularity: 10,
+    rating:  1,
+    tags: [`chocolate, yummy, family favorite`]
+    },
+{
+    name: `Iceream`,
+    price: 4,
+    category: 'enteer',
+    popularity:  7,
+    rating: 5,
+    tags: ['cold, good, yummy']
+},
 
+{
+    name: 'pizza',
+    price: 18,
+    category: 'entree',
+    popularity: 6,
+    rating: 10,
+    tags:[` yummy, hot, warm`]
+
+},
+
+
+
+
+{
+    name: 'cake',
+    price: 15,
+    category: 'entree',
+    popularity: 8,
+    rating: 3,
+    tags:[` yummy, hot, warm`]
+
+},
+{
+    name: 'Strawberry',
+    price: 13,
+    category: 3,
+    popularity: 4,
+    rating: 2,
+    tags:['good', 'cherry','yummy']
+
+}
+]
 
 
 //////////////////PROBLEM 4////////////////////
@@ -117,7 +166,8 @@ console.log(Pizza['category'])
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+ const filteredFood = foodArr.filter(food => food.tags.includes('chocolate'))
+ console.log(filteredFood)
 
 
 
@@ -160,7 +210,18 @@ console.log(Pizza['category'])
     Return the filtered array from the entire function
 */
 
-//CODE HERE
+const filteredByProperty = (property,number,type) => {
+    const filterByArray = foodArr.filter((element)=>{
+        if(type == 'above'){
+            return element[property] > number
+        }else if(type === 'below'){
+            return element[property] <number
+        }
+    })
+    return filterByArray
+
+}
+
 
 
 /*
@@ -170,4 +231,4 @@ console.log(Pizza['category'])
     You'll have to console.log to see the filtered array
 */
 
-//CODE HERE
+console.log(filteredByProperty(`price`, 20, 'below'))

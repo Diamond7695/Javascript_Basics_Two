@@ -56,11 +56,13 @@ console.log(greetUser("Andrew"))
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 const canWeDeliver = zipCode =>{
-    if(zipCode === 84606)
-    return `Sorry, we can't deliver to that address`
+if(deliveryAreaZipCodes.includes(zip)){
+    console.log(`You're in out delivery zone!`)
 
+}else{
+    console.log("Sorry, we can't deliver to that address")
 }
-
+}
 
 
 
@@ -82,8 +84,22 @@ const canWeDeliver = zipCode =>{
     Name your new function `canWeDeliverTwo`.
 */
 
-// CODE HERE
-
+const canWeDeliver = zip => {
+    for(let i = 0; i < deliveryAreaZipCodes.length; i++){
+        if(zip === deliveryAreaZipCodes[i]){
+            return "You're in our delivery zone!"
+        }
+    }
+    return `return We can't deliver that address`
+}
+const weCanDeliver = zip => {
+    deliveryAreaZipCodes.forEeach(zipcode =>{
+        if(zip === zipcode){
+            return `You're in our delivery zone!`
+        }
+    })
+    return `Sorry we can't deliver to that address`
+}
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -118,7 +134,8 @@ const deals = [
     to replace the 15 with a 10.
 */
 
-//CODE HERE
+
+deals[0].title = deals[0].title.replace(`15%,10%`)
 
 
 
@@ -135,4 +152,5 @@ const deals = [
     to be displaying wrong on the live site.
 */
 
-//CODE HERE
+deals[1].desc = deals[1].desc.replace('Marcg, "April').trim()
+console.log(deals)
